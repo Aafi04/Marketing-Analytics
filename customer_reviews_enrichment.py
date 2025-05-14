@@ -1,4 +1,6 @@
 import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
 import pyodbc
 import nltk
 from nltk.sentiment.vader import SentimentIntensityAnalyzer
@@ -91,17 +93,11 @@ print(customer_reviews_df.head())
 customer_reviews_df.to_csv('fact_customer_reviews_with_sentiment.csv', index=False)
 
 # Visualization for Sentiment score and distribution
-import matplotlib.pyplot as plt
-import seaborn as sns
-
 sns.histplot(customer_reviews_df['SentimentScore'], bins=30, kde=True)
 plt.title('Sentiment Score Distribution')
 plt.show()
 
 #Visualization for Outliers in Sentiment Score and Ratings
-import matplotlib.pyplot as plt
-import seaborn as sns
-
 sns.set(style="whitegrid")
 
 plt.figure(figsize=(8, 6))
